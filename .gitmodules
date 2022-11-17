@@ -1,0 +1,3 @@
+[submodule "shelly-plug-prometheus"]
+	path = shelly-plug-prometheus
+	url = https://github.com/geerlingguy/shelly-plug-prometheus

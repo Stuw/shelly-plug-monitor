@@ -1,0 +1,33 @@
+version: "3"
+
+services:
+  shelly-plug:
+    user: "1000"
+    container_name: shelly-plug
+    image: php:8-apache
+    ports:
+      - "9924:80"
+    env_file:
+      - shelly-plug-config.env
+    volumes:
+      - './shelly-plug-prometheus/:/var/www/html'
+    restart: unless-stopped
+  prometheus:
+    user: "1000"
+    container_name: shelly-prometheus
+    image: prom/prometheus
+    ports:
+      - 9090:9090
+    volumes:
+      - './prometheus/config/:/etc/prometheus'
+      - './prometheus/data/:/prometheus'
+  grafana:
+    user: "1000"
+    container_name: shelly-grafana
+    image: grafana/grafana-oss
+    ports:
+      - 3000:3000
+    volumes:
+      - './grafana/data/:/var/lib/grafana'
+      - './grafana/config/:/etc/grafana'
+

@@ -1,0 +1,5 @@
+shelly-plug-config.env
+grafana/data/alerting/*
+grafana/data/grafana.db
+prometheus/data/*
+
