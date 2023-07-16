@@ -24,7 +24,6 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 2,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -80,7 +79,7 @@
         "showThresholdMarkers": true,
         "text": {}
       },
-      "pluginVersion": "9.3.0-beta1",
+      "pluginVersion": "10.0.2",
       "targets": [
         {
           "datasource": {
@@ -153,7 +152,7 @@
         "showThresholdMarkers": true,
         "text": {}
       },
-      "pluginVersion": "9.3.0-beta1",
+      "pluginVersion": "10.0.2",
       "targets": [
         {
           "datasource": {
@@ -192,7 +191,7 @@
       "fillGradient": 0,
       "gridPos": {
         "h": 8,
-        "w": 24,
+        "w": 12,
         "x": 0,
         "y": 8
       },
@@ -214,7 +213,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "9.3.0-beta1",
+      "pluginVersion": "10.0.2",
       "pointradius": 1,
       "points": true,
       "renderer": "flot",
@@ -269,16 +268,344 @@
       "yaxis": {
         "align": false
       }
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "bars",
+            "fillOpacity": 59,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 4,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "watt"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 8
+      },
+      "id": 7,
+      "interval": "1h",
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "10.0.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "power",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "Watts",
+          "queryType": "randomWalk",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "hour()",
+          "hide": true,
+          "instant": false,
+          "range": true,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "name": "Expression",
+            "type": "__expr__",
+            "uid": "__expr__"
+          },
+          "expression": "($B + 24)",
+          "hide": true,
+          "refId": "C",
+          "type": "math"
+        },
+        {
+          "conditions": [
+            {
+              "evaluator": {
+                "params": [
+                  0,
+                  0
+                ],
+                "type": "gt"
+              },
+              "operator": {
+                "type": "and"
+              },
+              "query": {
+                "params": []
+              },
+              "reducer": {
+                "params": [],
+                "type": "avg"
+              },
+              "type": "query"
+            }
+          ],
+          "datasource": {
+            "name": "Expression",
+            "type": "__expr__",
+            "uid": "__expr__"
+          },
+          "downsampler": "mean",
+          "expression": "(0 ** (($C - 0  ) % 24) * $price0  * $A) +\n(0 ** (($C - 1  ) % 24) * $price1  * $A) +\n(0 ** (($C - 2  ) % 24) * $price2  * $A) +\n(0 ** (($C - 3  ) % 24) * $price3  * $A) +\n(0 ** (($C - 4  ) % 24) * $price4  * $A) +\n(0 ** (($C - 5  ) % 24) * $price5  * $A) +\n(0 ** (($C - 6  ) % 24) * $price6  * $A) +\n(0 ** (($C - 7  ) % 24) * $price7  * $A) +\n(0 ** (($C - 8  ) % 24) * $price8  * $A) +\n(0 ** (($C - 9  ) % 24) * $price9  * $A) +\n(0 ** (($C - 10 ) % 24) * $price10 * $A) +\n(0 ** (($C - 11 ) % 24) * $price11 * $A) +\n(0 ** (($C - 12 ) % 24) * $price12 * $A) +\n(0 ** (($C - 13 ) % 24) * $price13 * $A) +\n(0 ** (($C - 14 ) % 24) * $price14 * $A) +\n(0 ** (($C - 15 ) % 24) * $price15 * $A) +\n(0 ** (($C - 16 ) % 24) * $price16 * $A) +\n(0 ** (($C - 17 ) % 24) * $price17 * $A) +\n(0 ** (($C - 18 ) % 24) * $price18 * $A) +\n(0 ** (($C - 19 ) % 24) * $price19 * $A) +\n(0 ** (($C - 20 ) % 24) * $price20 * $A) +\n(0 ** (($C - 21 ) % 24) * $price21 * $A) +\n(0 ** (($C - 22 ) % 24) * $price22 * $A) +\n(0 ** (($C - 23 ) % 24) * $price23 * $A)",
+          "hide": false,
+          "refId": "D",
+          "type": "math",
+          "upsampler": "fillna"
+        }
+      ],
+      "timeFrom": "24h",
+      "title": "Power Consumption",
+      "type": "timeseries"
     }
   ],
   "refresh": "1m",
-  "schemaVersion": 37,
+  "schemaVersion": 38,
   "style": "dark",
   "tags": [
     "power"
   ],
   "templating": {
-    "list": []
+    "list": [
+      {
+        "hide": 2,
+        "name": "price0",
+        "query": "1.0",
+        "skipUrlSync": false,
+        "type": "constant"
+      },
+      {
+        "hide": 2,
+        "name": "price1",
+        "query": "1.0",
+        "skipUrlSync": false,
+        "type": "constant"
+      },
+      {
+        "hide": 2,
+        "name": "price2",
+        "query": "1.0",
+        "skipUrlSync": false,
+        "type": "constant"
+      },
+      {
+        "hide": 2,
+        "name": "price3",
+        "query": "1.0",
+        "skipUrlSync": false,
+        "type": "constant"
+      },
+      {
+        "hide": 2,
+        "name": "price4",
+        "query": "1.0",
+        "skipUrlSync": false,
+        "type": "constant"
+      },
+      {
+        "hide": 2,
+        "name": "price5",
+        "query": "1.0",
+        "skipUrlSync": false,
+        "type": "constant"
+      },
+      {
+        "hide": 2,
+        "name": "price6",
+        "query": "1.0",
+        "skipUrlSync": false,
+        "type": "constant"
+      },
+      {
+        "hide": 2,
+        "name": "price7",
+        "query": "1.0",
+        "skipUrlSync": false,
+        "type": "constant"
+      },
+      {
+        "hide": 2,
+        "name": "price8",
+        "query": "1.0",
+        "skipUrlSync": false,
+        "type": "constant"
+      },
+      {
+        "hide": 2,
+        "name": "price9",
+        "query": "1.0",
+        "skipUrlSync": false,
+        "type": "constant"
+      },
+      {
+        "hide": 2,
+        "name": "price10",
+        "query": "1.0",
+        "skipUrlSync": false,
+        "type": "constant"
+      },
+      {
+        "hide": 2,
+        "name": "price11",
+        "query": "1.0",
+        "skipUrlSync": false,
+        "type": "constant"
+      },
+      {
+        "hide": 2,
+        "name": "price12",
+        "query": "1.0",
+        "skipUrlSync": false,
+        "type": "constant"
+      },
+      {
+        "hide": 2,
+        "name": "price13",
+        "query": "1.0",
+        "skipUrlSync": false,
+        "type": "constant"
+      },
+      {
+        "hide": 2,
+        "name": "price14",
+        "query": "1.0",
+        "skipUrlSync": false,
+        "type": "constant"
+      },
+      {
+        "hide": 2,
+        "name": "price15",
+        "query": "1.0",
+        "skipUrlSync": false,
+        "type": "constant"
+      },
+      {
+        "hide": 2,
+        "name": "price16",
+        "query": "1.0",
+        "skipUrlSync": false,
+        "type": "constant"
+      },
+      {
+        "hide": 2,
+        "name": "price17",
+        "query": "1.0",
+        "skipUrlSync": false,
+        "type": "constant"
+      },
+      {
+        "hide": 2,
+        "name": "price18",
+        "query": "1.0",
+        "skipUrlSync": false,
+        "type": "constant"
+      },
+      {
+        "hide": 2,
+        "name": "price19",
+        "query": "1.0",
+        "skipUrlSync": false,
+        "type": "constant"
+      },
+      {
+        "hide": 2,
+        "name": "price20",
+        "query": "1.0",
+        "skipUrlSync": false,
+        "type": "constant"
+      },
+      {
+        "hide": 2,
+        "name": "price21",
+        "query": "1.0",
+        "skipUrlSync": false,
+        "type": "constant"
+      },
+      {
+        "hide": 2,
+        "name": "price22",
+        "query": "1.0",
+        "skipUrlSync": false,
+        "type": "constant"
+      },
+      {
+        "hide": 2,
+        "name": "price23",
+        "query": "1.0",
+        "skipUrlSync": false,
+        "type": "constant"
+      }
+    ]
   },
   "time": {
     "from": "now-1h",
@@ -288,6 +615,6 @@
   "timezone": "",
   "title": "Power consumption Shelly Plug S",
   "uid": "i_aeo-uMz",
-  "version": 1,
+  "version": 2,
   "weekStart": ""
 }
