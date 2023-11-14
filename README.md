@@ -22,8 +22,5 @@ IMPORTANT: use UTC time for price points
 * Run `docker compose up`
 * Go to Grafana at `https://<your_server_ip>:3000` and login with username `admin` with password `admin`
 * Change Grafana admin password
-* Interrupt docker compose
-* Fix permissions: `sudo chown -R $(id -u):$(id -g) .` (1)
-* Run `docker compose up`
 * Find shelly plug dashboard
 * Enjoy

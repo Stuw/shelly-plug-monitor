@@ -12,15 +12,27 @@ services:
     volumes:
       - './shelly-plug-prometheus/:/var/www/html'
     restart: unless-stopped
+
+  prometheus-init:
+    container_name: prometheus-init
+    image: alpine:3.14
+    volumes:
+      - './prometheus/data/:/prometheus'
+    command: chown 1000:1000 /prometheus
+
   prometheus:
     user: "1000"
     container_name: shelly-prometheus
+    depends_on:
+      prometheus-init:
+        condition: service_completed_successfully
     image: prom/prometheus
     ports:
       - 9090:9090
     volumes:
       - './prometheus/config/:/etc/prometheus'
       - './prometheus/data/:/prometheus'
+
   grafana:
     user: "1000"
     container_name: shelly-grafana
