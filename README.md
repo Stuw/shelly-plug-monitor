@@ -20,7 +20,7 @@ NOTE: there is an issue with permissions after first run (1)
 * OPTIONAL: edit `price.json` and run `./scripts/apply_price.py` to update per-hour price
 IMPORTANT: use UTC time for price points
 * Run `docker compose up`
-* Go to Grafana at `https://<your_server_ip>:3000` and login with username `admin` with password `admin`
+* Go to Grafana at `http://<your_server_ip>:3000` and login with username `admin` with password `admin`
 * Change Grafana admin password
 * Find shelly plug dashboard
 * Enjoy
