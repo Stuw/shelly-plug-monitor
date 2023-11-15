@@ -180,37 +180,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "bars",
-            "fillOpacity": 59,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 4,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "never",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
+            "mode": "thresholds"
           },
           "mappings": [],
           "min": 0,
@@ -223,7 +193,7 @@
               },
               {
                 "color": "red",
-                "value": 80
+                "value": 2000
               }
             ]
           },
@@ -232,24 +202,28 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 8,
-        "w": 12,
+        "h": 4,
+        "w": 4,
         "x": 12,
         "y": 0
       },
-      "id": 7,
+      "hideTimeOverride": true,
+      "id": 9,
       "interval": "1h",
+      "maxDataPoints": 24,
       "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": false
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "sum"
+          ],
+          "fields": "",
+          "values": false
         },
-        "tooltip": {
-          "mode": "multi",
-          "sort": "none"
-        }
+        "textMode": "auto"
       },
       "pluginVersion": "10.0.2",
       "targets": [
@@ -268,9 +242,561 @@
           "refId": "A"
         }
       ],
-      "timeFrom": "24h",
-      "title": "Power Consumption per Hour",
-      "type": "timeseries"
+      "timeFrom": "1h",
+      "timeShift": "0d/d",
+      "title": "Consumed Power (today)",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 2000
+              }
+            ]
+          },
+          "unit": "watt"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 16,
+        "y": 0
+      },
+      "hideTimeOverride": true,
+      "id": 13,
+      "interval": "1h",
+      "maxDataPoints": 168,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "sum"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "10.0.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "power",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "Watts",
+          "queryType": "randomWalk",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "timeFrom": "1h",
+      "timeShift": "0w/w",
+      "title": "Consumed Power (this week)",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 2000
+              }
+            ]
+          },
+          "unit": "watt"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 20,
+        "y": 0
+      },
+      "hideTimeOverride": true,
+      "id": 14,
+      "interval": "1h",
+      "maxDataPoints": 744,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "sum"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "10.0.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "power",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "Watts",
+          "queryType": "randomWalk",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "timeFrom": "1h",
+      "timeShift": "0M/M",
+      "title": "Consumed Power (this month)",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-BlPu"
+          },
+          "decimals": 2,
+          "displayName": "$",
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "orange",
+                "value": null
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 12,
+        "y": 4
+      },
+      "hideTimeOverride": true,
+      "id": 10,
+      "interval": "1h",
+      "maxDataPoints": 24,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "sum"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "10.0.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "power",
+          "hide": true,
+          "interval": "",
+          "legendFormat": "Watts",
+          "queryType": "randomWalk",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "hour()",
+          "hide": true,
+          "instant": false,
+          "range": true,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "name": "Expression",
+            "type": "__expr__",
+            "uid": "__expr__"
+          },
+          "expression": "($B + 24)",
+          "hide": true,
+          "refId": "C",
+          "type": "math"
+        },
+        {
+          "conditions": [
+            {
+              "evaluator": {
+                "params": [
+                  0,
+                  0
+                ],
+                "type": "gt"
+              },
+              "operator": {
+                "type": "and"
+              },
+              "query": {
+                "params": []
+              },
+              "reducer": {
+                "params": [],
+                "type": "avg"
+              },
+              "type": "query"
+            }
+          ],
+          "datasource": {
+            "name": "Expression",
+            "type": "__expr__",
+            "uid": "__expr__"
+          },
+          "downsampler": "mean",
+          "expression": "(0 ** (($C - 0  ) % 24) * $price0  * $A) +\n(0 ** (($C - 1  ) % 24) * $price1  * $A) +\n(0 ** (($C - 2  ) % 24) * $price2  * $A) +\n(0 ** (($C - 3  ) % 24) * $price3  * $A) +\n(0 ** (($C - 4  ) % 24) * $price4  * $A) +\n(0 ** (($C - 5  ) % 24) * $price5  * $A) +\n(0 ** (($C - 6  ) % 24) * $price6  * $A) +\n(0 ** (($C - 7  ) % 24) * $price7  * $A) +\n(0 ** (($C - 8  ) % 24) * $price8  * $A) +\n(0 ** (($C - 9  ) % 24) * $price9  * $A) +\n(0 ** (($C - 10 ) % 24) * $price10 * $A) +\n(0 ** (($C - 11 ) % 24) * $price11 * $A) +\n(0 ** (($C - 12 ) % 24) * $price12 * $A) +\n(0 ** (($C - 13 ) % 24) * $price13 * $A) +\n(0 ** (($C - 14 ) % 24) * $price14 * $A) +\n(0 ** (($C - 15 ) % 24) * $price15 * $A) +\n(0 ** (($C - 16 ) % 24) * $price16 * $A) +\n(0 ** (($C - 17 ) % 24) * $price17 * $A) +\n(0 ** (($C - 18 ) % 24) * $price18 * $A) +\n(0 ** (($C - 19 ) % 24) * $price19 * $A) +\n(0 ** (($C - 20 ) % 24) * $price20 * $A) +\n(0 ** (($C - 21 ) % 24) * $price21 * $A) +\n(0 ** (($C - 22 ) % 24) * $price22 * $A) +\n(0 ** (($C - 23 ) % 24) * $price23 * $A)",
+          "hide": false,
+          "legendFormat": "Price",
+          "refId": "D",
+          "type": "math",
+          "upsampler": "fillna"
+        }
+      ],
+      "timeFrom": "1h",
+      "timeShift": "0d/d",
+      "title": "Cost (today)",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-BlPu"
+          },
+          "decimals": 2,
+          "displayName": "$",
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "orange",
+                "value": null
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 16,
+        "y": 4
+      },
+      "hideTimeOverride": true,
+      "id": 12,
+      "interval": "1h",
+      "maxDataPoints": 168,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "sum"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "10.0.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "power",
+          "hide": true,
+          "interval": "",
+          "legendFormat": "Watts",
+          "queryType": "randomWalk",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "hour()",
+          "hide": true,
+          "instant": false,
+          "range": true,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "name": "Expression",
+            "type": "__expr__",
+            "uid": "__expr__"
+          },
+          "expression": "($B + 24)",
+          "hide": true,
+          "refId": "C",
+          "type": "math"
+        },
+        {
+          "conditions": [
+            {
+              "evaluator": {
+                "params": [
+                  0,
+                  0
+                ],
+                "type": "gt"
+              },
+              "operator": {
+                "type": "and"
+              },
+              "query": {
+                "params": []
+              },
+              "reducer": {
+                "params": [],
+                "type": "avg"
+              },
+              "type": "query"
+            }
+          ],
+          "datasource": {
+            "name": "Expression",
+            "type": "__expr__",
+            "uid": "__expr__"
+          },
+          "downsampler": "mean",
+          "expression": "(0 ** (($C - 0  ) % 24) * $price0  * $A) +\n(0 ** (($C - 1  ) % 24) * $price1  * $A) +\n(0 ** (($C - 2  ) % 24) * $price2  * $A) +\n(0 ** (($C - 3  ) % 24) * $price3  * $A) +\n(0 ** (($C - 4  ) % 24) * $price4  * $A) +\n(0 ** (($C - 5  ) % 24) * $price5  * $A) +\n(0 ** (($C - 6  ) % 24) * $price6  * $A) +\n(0 ** (($C - 7  ) % 24) * $price7  * $A) +\n(0 ** (($C - 8  ) % 24) * $price8  * $A) +\n(0 ** (($C - 9  ) % 24) * $price9  * $A) +\n(0 ** (($C - 10 ) % 24) * $price10 * $A) +\n(0 ** (($C - 11 ) % 24) * $price11 * $A) +\n(0 ** (($C - 12 ) % 24) * $price12 * $A) +\n(0 ** (($C - 13 ) % 24) * $price13 * $A) +\n(0 ** (($C - 14 ) % 24) * $price14 * $A) +\n(0 ** (($C - 15 ) % 24) * $price15 * $A) +\n(0 ** (($C - 16 ) % 24) * $price16 * $A) +\n(0 ** (($C - 17 ) % 24) * $price17 * $A) +\n(0 ** (($C - 18 ) % 24) * $price18 * $A) +\n(0 ** (($C - 19 ) % 24) * $price19 * $A) +\n(0 ** (($C - 20 ) % 24) * $price20 * $A) +\n(0 ** (($C - 21 ) % 24) * $price21 * $A) +\n(0 ** (($C - 22 ) % 24) * $price22 * $A) +\n(0 ** (($C - 23 ) % 24) * $price23 * $A)",
+          "hide": false,
+          "legendFormat": "Price",
+          "refId": "D",
+          "type": "math",
+          "upsampler": "fillna"
+        }
+      ],
+      "timeFrom": "1h",
+      "timeShift": "0w/w",
+      "title": "Cost (this week)",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-BlPu"
+          },
+          "decimals": 2,
+          "displayName": "$",
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "orange",
+                "value": null
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 20,
+        "y": 4
+      },
+      "hideTimeOverride": true,
+      "id": 11,
+      "interval": "1h",
+      "maxDataPoints": 744,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "sum"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "10.0.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "power",
+          "hide": true,
+          "interval": "",
+          "legendFormat": "Watts",
+          "queryType": "randomWalk",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "hour()",
+          "hide": true,
+          "instant": false,
+          "range": true,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "name": "Expression",
+            "type": "__expr__",
+            "uid": "__expr__"
+          },
+          "expression": "($B + 24)",
+          "hide": true,
+          "refId": "C",
+          "type": "math"
+        },
+        {
+          "conditions": [
+            {
+              "evaluator": {
+                "params": [
+                  0,
+                  0
+                ],
+                "type": "gt"
+              },
+              "operator": {
+                "type": "and"
+              },
+              "query": {
+                "params": []
+              },
+              "reducer": {
+                "params": [],
+                "type": "avg"
+              },
+              "type": "query"
+            }
+          ],
+          "datasource": {
+            "name": "Expression",
+            "type": "__expr__",
+            "uid": "__expr__"
+          },
+          "downsampler": "mean",
+          "expression": "(0 ** (($C - 0  ) % 24) * $price0  * $A) +\n(0 ** (($C - 1  ) % 24) * $price1  * $A) +\n(0 ** (($C - 2  ) % 24) * $price2  * $A) +\n(0 ** (($C - 3  ) % 24) * $price3  * $A) +\n(0 ** (($C - 4  ) % 24) * $price4  * $A) +\n(0 ** (($C - 5  ) % 24) * $price5  * $A) +\n(0 ** (($C - 6  ) % 24) * $price6  * $A) +\n(0 ** (($C - 7  ) % 24) * $price7  * $A) +\n(0 ** (($C - 8  ) % 24) * $price8  * $A) +\n(0 ** (($C - 9  ) % 24) * $price9  * $A) +\n(0 ** (($C - 10 ) % 24) * $price10 * $A) +\n(0 ** (($C - 11 ) % 24) * $price11 * $A) +\n(0 ** (($C - 12 ) % 24) * $price12 * $A) +\n(0 ** (($C - 13 ) % 24) * $price13 * $A) +\n(0 ** (($C - 14 ) % 24) * $price14 * $A) +\n(0 ** (($C - 15 ) % 24) * $price15 * $A) +\n(0 ** (($C - 16 ) % 24) * $price16 * $A) +\n(0 ** (($C - 17 ) % 24) * $price17 * $A) +\n(0 ** (($C - 18 ) % 24) * $price18 * $A) +\n(0 ** (($C - 19 ) % 24) * $price19 * $A) +\n(0 ** (($C - 20 ) % 24) * $price20 * $A) +\n(0 ** (($C - 21 ) % 24) * $price21 * $A) +\n(0 ** (($C - 22 ) % 24) * $price22 * $A) +\n(0 ** (($C - 23 ) % 24) * $price23 * $A)",
+          "hide": false,
+          "legendFormat": "Price",
+          "refId": "D",
+          "type": "math",
+          "upsampler": "fillna"
+        }
+      ],
+      "timeFrom": "1h",
+      "timeShift": "0M/M",
+      "title": "Cost (this month)",
+      "type": "stat"
     },
     {
       "aliasColors": {},
@@ -291,7 +817,7 @@
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
-        "h": 8,
+        "h": 12,
         "w": 12,
         "x": 0,
         "y": 8
@@ -379,11 +905,113 @@
       "fieldConfig": {
         "defaults": {
           "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "bars",
+            "fillOpacity": 59,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 4,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "watt"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 12,
+        "x": 12,
+        "y": 8
+      },
+      "id": 7,
+      "interval": "1h",
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "10.0.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "power",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "Watts",
+          "queryType": "randomWalk",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "timeFrom": "24h",
+      "title": "Power Consumption per Hour",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
             "mode": "continuous-BlPu"
           },
           "custom": {
             "axisCenteredZero": false,
             "axisColorMode": "text",
+            "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
             "drawStyle": "bars",
@@ -427,10 +1055,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 8,
+        "h": 6,
         "w": 12,
         "x": 12,
-        "y": 8
+        "y": 14
       },
       "id": 8,
       "interval": "1h",
@@ -713,6 +1341,6 @@
   "timezone": "",
   "title": "Power consumption Shelly Plug S",
   "uid": "i_aeo-uMz",
-  "version": 3,
+  "version": 48,
   "weekStart": ""
 }
