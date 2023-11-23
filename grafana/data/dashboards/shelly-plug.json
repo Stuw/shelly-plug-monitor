@@ -242,7 +242,7 @@
           "refId": "A"
         }
       ],
-      "timeFrom": "1h",
+      "timeFrom": "0h",
       "timeShift": "0d/d",
       "title": "Consumed Power (today)",
       "type": "stat"
@@ -318,7 +318,7 @@
           "refId": "A"
         }
       ],
-      "timeFrom": "1h",
+      "timeFrom": "0h",
       "timeShift": "0w/w",
       "title": "Consumed Power (this week)",
       "type": "stat"
@@ -527,7 +527,7 @@
           "upsampler": "fillna"
         }
       ],
-      "timeFrom": "1h",
+      "timeFrom": "0h",
       "timeShift": "0d/d",
       "title": "Cost (today)",
       "type": "stat"
@@ -1151,7 +1151,7 @@
         }
       ],
       "timeFrom": "24h",
-      "title": "Price per Hour",
+      "title": "Cost per Hour",
       "type": "timeseries"
     }
   ],
@@ -1334,13 +1334,13 @@
     ]
   },
   "time": {
-    "from": "now-1h",
+    "from": "now-24h",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "",
   "title": "Power consumption Shelly Plug S",
   "uid": "i_aeo-uMz",
-  "version": 48,
+  "version": 58,
   "weekStart": ""
 }
