@@ -266,10 +266,6 @@
               {
                 "color": "green",
                 "value": null
-              },
-              {
-                "color": "red",
-                "value": 2000
               }
             ]
           },
@@ -342,10 +338,6 @@
               {
                 "color": "green",
                 "value": null
-              },
-              {
-                "color": "red",
-                "value": 2000
               }
             ]
           },
@@ -1341,6 +1333,6 @@
   "timezone": "",
   "title": "Power consumption Shelly Plug S",
   "uid": "i_aeo-uMz",
-  "version": 58,
+  "version": 62,
   "weekStart": ""
 }
